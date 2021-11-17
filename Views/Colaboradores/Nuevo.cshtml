@@ -1,0 +1,55 @@
+﻿@model MVCCrud.Models.ColaboradorModel
+
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("Nuevo", "Colaboradores", FormMethod.Post))
+{
+<div class=="row">
+    <div class="col-md-12">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                @Html.LabelFor(d => d.Nombres)
+                @Html.TextBoxFor(d => d.Nombres, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Nombres, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group col-md-6">
+                @Html.LabelFor(d => d.Apellidos)
+                @Html.TextBoxFor(d => d.Apellidos, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Apellidos, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(d => d.Direccion)
+            @Html.TextBoxFor(d => d.Direccion, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.Direccion, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(d => d.GradoAcademico)
+            @Html.TextBoxFor(d => d.GradoAcademico, "", new { @class = "form-control" })
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                @Html.LabelFor(d => d.EstadoCivil)
+                @Html.TextBoxFor(d => d.EstadoCivil, "", new { @class = "form-control" })
+            </div>
+
+            <div class="form-group col-md-6">
+                @Html.LabelFor(d => d.FechaNacimiento)
+                @Html.EditorFor(d => d.FechaNacimiento, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.FechaNacimiento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+        <br />
+        <div style="text-align: right">
+            <input value="Guardar" class="btn btn-primary" type="submit" />
+        </div>
+    </div>
+</div>
+}
